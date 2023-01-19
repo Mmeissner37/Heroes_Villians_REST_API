@@ -3,6 +3,6 @@ from .models import Supers
 
 
 class SupersSerializer(serializers.ModelSerializer):
-    class Meta():
+    class Meta:
         model = Supers
         fields = ['name', 'alter-ego', 'primary_ability', 'secondary_ability', 'catchphrase', 'super_type']
