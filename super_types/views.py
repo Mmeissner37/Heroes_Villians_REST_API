@@ -5,7 +5,7 @@ from rest_framework.response import Response
 
 
 @api_view(['GET'])
-def supers_types(request):
+def super_types(request):
 
 
     return Response('ok')
