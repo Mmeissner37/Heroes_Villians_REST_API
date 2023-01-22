@@ -12,12 +12,9 @@ def super_list(request):
 
         super_type = request.query_params.get('super_type')
         print(super_type)
-
         queryset = Supers.objects.all()
         if super_type:
-            queryset = queryset.filter(super_type=super_type)
-
-        supers = Supers.objects.all()
+            queryset = queryset.filter(super__type=super_type)
         serializer = SupersSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -31,7 +28,7 @@ def super_list(request):
 def super_detail(request, pk):
     super = get_list_or_404(Supers, pk=pk)
     if request.method == 'GET':
-        serializer = SupersSerializer(super);
+        serializer = SupersSerializer(super)
         return Response(serializer.data)
     elif request.method == 'PUT':
         super = get_list_or_404(Supers, pk=pk)
